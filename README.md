@@ -15,3 +15,17 @@ python tntp2gr.py source.tntp values.gr cost.gr
 ```
 
 `tntp2gr` split `tntp` into 2 `gr` files where first contains values, second - cost
+
+# GR -> REDUCE -> BIN + CSV
+
+To zip 2 gr files and generate bin + csv (input for task1)
+
+```
+python3 gr_reduce2bin.py ./data/USA-road-d.NY.gr ./data/USA-road-t.NY.gr \
+--output_minimax minimax.dist.gr --output_multiplicative mult.dist.gr --output_lambda lambda.dist.gr \
+--lambda_value 0.5
+```
+
+`gr_reduce2bin.py` take 2 `gr` files as input, process their zip via 3 heuristics, then it generates `bin` graph and `csv` pairs
+
+HINT: use `.dist.gr` extenstion for compatability with routing-framework
