@@ -22,7 +22,7 @@ To zip 2 gr files and generate bin + csv (input for task1)
 
 ```
 python3 gr_reduce2bin.py ./data/USA-road-d.NY.gr ./data/USA-road-t.NY.gr \
---output_minimax minimax.dist.gr --output_multiplicative mult.dist.gr --output_lambda lambda.dist.gr \
+--output_multiplicative mult.dist.gr --output_lambda lambda.dist.gr \
 --lambda_value 0.5
 ```
 
