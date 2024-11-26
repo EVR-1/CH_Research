@@ -1,0 +1,9 @@
+# Graph: lambda08CR_graph.gr.bin
+# Demand: lambda08CR_graph_graph_pairs.csv
+# Objective function: SO
+# Traversal cost function: BPR
+# Shortest-path algorithm: CH
+# Period of analysis: 0
+# Preprocessing time: 0ms
+iteration,customization_time,query_time,line_search_time,total_time,prev_total_traversal_cost,prev_relative_gap,checksum
+1,6,33,6,45,nan,nan,0
