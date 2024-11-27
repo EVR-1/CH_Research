@@ -29,3 +29,19 @@ python3 gr_reduce2bin.py ./data/USA-road-d.NY.gr ./data/USA-road-t.NY.gr \
 `gr_reduce2bin.py` take 2 `gr` files as input, process their zip via 3 heuristics, then it generates `bin` graph and `csv` pairs
 
 HINT: use `.dist.gr` extenstion for compatability with routing-framework
+
+# P2P_Applier
+
+To apply `RunP2PAlgo` to bin and csv files
+
+```
+python3 p2p_applier.py graph.gr.bin 30 result ch_result graph_graph_pairs.csv
+```
+
+# Run task1
+
+To run `gr_reduce2bin` and `p2p_applier`
+
+```
+python3 run_task1.py c1.gr c2.gr
+```
