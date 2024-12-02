@@ -126,7 +126,7 @@ def generate_od_pairs(filename):
     t_name = filename.replace(".gr.bin","")
     out_name = t_name + "_graph_pairs"
     command = [
-        "GenerateODPairs", "-n", "100", "-r", "1", "-d", "10", "-geom",
+        "GenerateODPairs", "-n", "100", "-geom",
         "-g", filename, "-o", out_name
     ]
     try:
