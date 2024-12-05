@@ -16,31 +16,26 @@ python tntp2gr.py source.tntp values.gr cost.gr
 
 `tntp2gr` split `tntp` into 2 `gr` files where first contains values, second - cost
 
-# GR -> REDUCE -> BIN + CSV
+# GR -> REDUCE
 
-To zip 2 gr files and generate bin + csv (input for task1)
+To zip 2 gr files
 
 ```
 python3 gr_reduce2bin.py ./data/USA-road-d.NY.gr ./data/USA-road-t.NY.gr \
 --output_multiplicative mult.dist.gr --output_lambda lambda.dist.gr \
---lambda_value 0.5
 ```
 
-`gr_reduce2bin.py` take 2 `gr` files as input, process their zip via 3 heuristics, then it generates `bin` graph and `csv` pairs
+# ch_solver_applier
 
-HINT: use `.dist.gr` extenstion for compatability with routing-framework
-
-# P2P_Applier
-
-To apply `RunP2PAlgo` to bin and csv files
+To apply `contraction and ch_solver` to graph files
 
 ```
-python3 p2p_applier.py graph.gr.bin 30 result ch_result graph_graph_pairs.csv
+python3 p2p_applier.py graph1.gr graph2.gr instances.txt 0.9 output ./temp
 ```
 
 # Run task1
 
-To run `gr_reduce2bin` and `p2p_applier`
+To run `gr_reduce2` and `ch_solver_applier`
 
 ```
 python3 run_task1.py c1.gr c2.gr
