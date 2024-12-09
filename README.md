@@ -38,5 +38,5 @@ python3 p2p_applier.py graph1.gr graph2.gr instances.txt 0.9 output ./temp
 To run `gr_reduce2` and `ch_solver_applier`
 
 ```
-python3 run_task1.py c1.gr c2.gr
+python3 run_task1.py c1.gr c2.gr instances.txt
 ```
