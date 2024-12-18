@@ -72,6 +72,7 @@ int main(int argc, char** argv){
 
     std::ofstream stats;
     stats.open(vm["output"].as<std::string>(), std::fstream::app);
+    double mean = 0;
     for (auto & query: queries){
 
         size_t start = query.first;
@@ -95,6 +96,7 @@ int main(int argc, char** argv){
                   << (double) boach.total_time/CLOCKS_PER_SEC << "\t"
                   << (double) boach.preprocess_time/CLOCKS_PER_SEC
                   << std::endl;
+		  mean += (double) boach.total_time/CLOCKS_PER_SEC;
         } else {
             std::cout << "partial expansion;" << std::endl;
             BOAStarCHPartial boach(chg);
@@ -111,8 +113,11 @@ int main(int argc, char** argv){
                   << (double) boach.total_time/CLOCKS_PER_SEC << "\t"
                   << (double) boach.preprocess_time/CLOCKS_PER_SEC
                   << std::endl;
+		  mean += (double) boach.total_time/CLOCKS_PER_SEC;
         }
     }
-
+    std::cout << std::endl;
+    std::cout << "MEAN TIME:" << mean / queries.size() << std::endl;
+    std::cout << std::endl;
     return 0;
 }

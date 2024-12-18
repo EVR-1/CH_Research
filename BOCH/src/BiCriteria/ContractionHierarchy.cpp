@@ -4,6 +4,7 @@
 #include <fstream>
 #include <algorithm>
 #include "ShortestPathHeuristic.h"
+#include <ctime>
 
 
 Edge briding(const Edge & a, const Edge &b ){
@@ -52,6 +53,7 @@ void remove_dominated(std::vector<Edge> & edges){
 
 void ContractionHierarchy::edge_difference(size_t state){
     cnt_edge_diff += 1;
+    size_t cnt_shortcut = 0;
     size_t edge_cnt = graph[state].size() + inv_graph[state].size();
     size_t new_edge_cnt = 0;
 
@@ -111,9 +113,11 @@ void ContractionHierarchy::edge_difference(size_t state){
                 all_edge_combination = all_edge_combination_;
             } else if (lcs_witness){
                 remove_dominated(all_edge_combination);
+		cnt_shortcut += 1;
                 witness_search_lcs(u, v, all_edge_combination);
             } else {
                 remove_dominated(all_edge_combination);
+		cnt_shortcut += 1;
                 witness_search(u, v, all_edge_combination, state);
             }
 
@@ -248,6 +252,7 @@ void ContractionHierarchy::contract(size_t contract_limit){
     std::cout << "Total time: " << total_time / CLOCKS_PER_SEC << std::endl;
     std::cout << "cnt edge diff: " << cnt_edge_diff << "  cnt witness search: " << cnt_witness_search << std::endl;
     std::cout << "cnt node exp: " << cnt_node_exp << std::endl;
+    std::cout << "Total contract " << cnt << " states, add shortcuts: " << all_shortcuts.size() << std::endl;
 }
 
 // std::ostream& operator<<(std::ostream &stream, const std::vector<size_t> &vec){
